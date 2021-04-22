@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Pagina d'inici</h1>
+<a href="/registration">Registrarse</a><br/>
+<a href="/login">Entrar</a><br/>
+<a href="/userList">Veure el llistat d'usuaris</a><br/>
+<a href="/home">Veure personatges</a><br/>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sortir"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1 th:text="Registre">form</h1>
+<form action="#"  th:action="@{/afegirPersonatge}"  th:object="${Personatge}" method="POST" >
+  <div>
+    <label th:text="Nom_Personatge">Nom Personatge</label>
+    <input type="text" id="username" th:field="*{nom}"/>
+    <p th:each="error: ${#fields.errors('nom')}"
+       th:text="${error}">Validation error</p>
+  </div>
+  <div>
+    <label th:text="Nom_del_videojoc_origen">Nom del videojoc origen</label>
+    <input type="text"  th:field="*{videojoc}"/>
+    <p th:each="error : ${#fields.errors('videojoc')}"
+       th:text="${error}">Validation error</p>
+  </div>
+  <button type="submit" th:text="Submit">submit</button>
+</form>
+</br>
+</br>
+</br>
+</br>
+<form th:action="@{/logout}" method="post">
+  <input type="submit" value="Sortir"/>
+</form>
+</body>
+</html>

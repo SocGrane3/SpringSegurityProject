@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Llistat</title>
+</head>
+<body>
+<thead>
+<tr>
+
+    <th>Nom</th>
+    <th>Videojoc</th>
+    <form action="#"  th:action="@{afegir}"  method="post">
+        <input  type="submit"  value="Afegir personatge"/>
+    </form>
+</tr></br>
+</thead>
+<tbody>
+<tr th:each="Personatge : ${llistaPersonatge}">
+    <br>
+
+    <td th:text="${Personatge.nom}">nom</td>
+    <td th:text="${Personatge.videojoc}">videojoc</td>
+
+    <form action="#"  th:action="@{update/{name}(name = ${Personatge.nom})}" th:object="${Personatge}"  method="post">
+        <input type="submit" value="Actualitzar"/>
+    </form>
+
+    <form action="#"  th:action="@{delete/{name}(name = ${Personatge.nom})}" th:object="${Personatge}"  method="post">
+        <input  type="submit"  value="Eliminar"/>
+    </form>
+
+
+    </br>
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+</br>
+</br>
+</br>
+</br>
+
+<form th:action="@{/login}" method="post">
+    <input type="submit" value="Entrar"/>
+</form>
+<form th:action="@{/registration}" method="get">
+    <input type="submit" value="Registrarse"/>
+</form>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sortir"/>
+</form>
+</body>
+</html>
