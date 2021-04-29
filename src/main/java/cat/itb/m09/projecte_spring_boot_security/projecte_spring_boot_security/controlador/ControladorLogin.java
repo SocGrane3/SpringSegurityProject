@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
 @Controller
-public class ControladorLogin {
+public class    ControladorLogin {
 
 
     @Autowired

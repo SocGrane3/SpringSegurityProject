@@ -45,10 +45,7 @@ public class ConfiguracioSeguretat extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/")
                 .permitAll()
                  .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
+
                 .logout()//redirecció a /login?logout
                 .permitAll()
 

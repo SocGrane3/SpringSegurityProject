@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 @Service
 public class ServeiUsuaris {
@@ -26,8 +27,19 @@ public class ServeiUsuaris {
         return actualList;
     }
 
-    public Usuari consultaPerId(String username) {
-        return repositori.findById(username).orElse(null);
+    public Usuari consultaPerId(Long id) {
+        return repositori.findById(id).orElse(null);
+    }
+    public Usuari consultaPerNom(String username) {
+        final Usuari[] usuariR = new Usuari[1];
+        repositori.findAll().forEach(new Consumer<Usuari>() {
+            @Override
+            public void accept(Usuari usuari) {
+                if (usuari.getUsername().equals(username))
+                    usuariR[0] = usuari;
+            }
+        });
+        return usuariR[0];
     }
 
 

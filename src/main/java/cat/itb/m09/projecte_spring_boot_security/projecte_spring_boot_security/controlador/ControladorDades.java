@@ -13,14 +13,6 @@ public class ControladorDades {
     private ServeiPersonatges serveiPersonatges;
     String nom;
 
-/*
-    @GetMapping("/")
-    public  String  inici(Model m){
-        m.addAttribute("llistaAnimal",serveiAnimal.llistat());
-        m.addAttribute("Personatge",new Artist());
-        return "home";
-    }
-*/
 
     @RequestMapping( value ="/delete/{name}", method = RequestMethod.POST)
     public String eliminarPersonatgePerNom(@PathVariable("name") String nomPersonatge){
@@ -38,7 +30,7 @@ public class ControladorDades {
     }
 
     @GetMapping("/home")
-    public String llistarAnimal(Model m){
+    public String llistarPersonatge(Model m){
         m.addAttribute("llistaPersonatge", serveiPersonatges.llistat());
         m.addAttribute("Personatge",new Personatge());
         return "home";

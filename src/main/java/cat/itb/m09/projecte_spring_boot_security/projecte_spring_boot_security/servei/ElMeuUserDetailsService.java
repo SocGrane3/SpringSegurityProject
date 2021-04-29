@@ -17,7 +17,7 @@ public class ElMeuUserDetailsService implements UserDetailsService {
     private ServeiUsuaris serveiUsuaris;
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        Usuari u= serveiUsuaris.consultaPerId(s);
+        Usuari u= serveiUsuaris.consultaPerNom(s);
         User.UserBuilder builder=null;
         if(u!=null){
             builder=User.withUsername(s);
