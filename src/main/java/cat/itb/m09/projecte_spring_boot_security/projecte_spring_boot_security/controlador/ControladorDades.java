@@ -1,7 +1,7 @@
 package cat.itb.m09.projecte_spring_boot_security.projecte_spring_boot_security.controlador;
 
-import cat.itb.m09.projecte_spring_boot_security.projecte_spring_boot_security.model.Personatge;
-import cat.itb.m09.projecte_spring_boot_security.projecte_spring_boot_security.servei.ServeiPersonatges;
+import cat.itb.m09.projecte_spring_boot_security.projecte_spring_boot_security.model.Manga;
+import cat.itb.m09.projecte_spring_boot_security.projecte_spring_boot_security.servei.ServeiManga;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,53 +10,44 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class ControladorDades {
     @Autowired
-    private ServeiPersonatges serveiPersonatges;
+    private ServeiManga serveiManga;
     String nom;
 
-
     @RequestMapping( value ="/delete/{name}", method = RequestMethod.POST)
-    public String eliminarPersonatgePerNom(@PathVariable("name") String nomPersonatge){
-
-
-
-        serveiPersonatges.eliminatPersontagePerNom(nomPersonatge);
+    public String eliminarMangaPerNom(@PathVariable("name") String nomManga){
+        serveiManga.eliminatPerNom(nomManga);
         return "redirect:/home";
     }
 
     @RequestMapping("/afegir")
-    public String afegirPersonatge(Model model) {
-        model.addAttribute("Personatge", new Personatge());
-        return "afegirPersonatge";
+    public String afegirManga(Model model) {
+        model.addAttribute("Manga", new Manga());
+        return "afegirManga";
     }
 
     @GetMapping("/home")
-    public String llistarPersonatge(Model m){
-        m.addAttribute("llistaPersonatge", serveiPersonatges.llistat());
-        m.addAttribute("Personatge",new Personatge());
+    public String llistarMangas(Model m){
+        m.addAttribute("llistaManga", serveiManga.llistat());
+        m.addAttribute("Manga",new Manga());
         return "home";
     }
-    @PostMapping("/afegirPersonatge")
-    //empleatForm és el nom de l'objecte que es recull al formulari, el CommandObject (bean)
-    //https://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html#handling-the-command-object
-    public String afegirPersonatgeSubmit(@ModelAttribute("Personatge") Personatge e){
-        serveiPersonatges.afegir(e);
+    @PostMapping("/afegirManga")
+    public String afegirMangaSubmit(@ModelAttribute("Manga") Manga manga){
+        serveiManga.afegir(manga);
         return "redirect:/home";
     }
     @RequestMapping( value ="/update/{name}", method = RequestMethod.POST)
-    public String updatePersonatge(@PathVariable("name") String personatge, Model m){
+    public String updateManga(@PathVariable("name") String manga, Model m){
 
-        nom = personatge;
-        m.addAttribute("Personatge", serveiPersonatges.consultaPerNom(personatge));
+        nom = manga;
+        m.addAttribute("Manga", serveiManga.consultaMangaPerNom(manga));
 
-        return "actualitzarPersonatge";
+        return "modificarManga";
     }
 
-    @PostMapping("/actualitzarPersonatge")
-    public String updatePersonatgeSubmit(@ModelAttribute("Personatge") Personatge e){
-        serveiPersonatges.actualitzarPersonatgePerNom(e, nom);
+    @PostMapping("/modificarManga")
+    public String updateMangaSubmit(@ModelAttribute("Manga") Manga e){
+        serveiManga.actualitzarPersonatgePerNom(e, nom);
         return "redirect:/home";
     }
-
-
-
 }

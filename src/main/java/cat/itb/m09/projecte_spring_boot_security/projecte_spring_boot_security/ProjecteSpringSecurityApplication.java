@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjecteSpringBootSecurityApplication {
+public class ProjecteSpringSecurityApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProjecteSpringBootSecurityApplication.class, args);
+        SpringApplication.run(ProjecteSpringSecurityApplication.class, args);
     }
 
 }

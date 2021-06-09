@@ -5,31 +5,35 @@
   <title>Llistat</title>
 </head>
 <body>
-<thead>
+  <table>
+    <thead>
 
-<tr>
+      <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Rol</th>
+      </tr
+      ></br>
 
-  <th>Username</th>
-  <th>Password</th>
-  <th>Rol</th>
-</tr></br>
-</thead>
-<tbody>
-<tr th:each="Usuaris : ${llistaUsuaris}">
-  <td th:text="${Usuaris.username}">username</td>
-  <td th:text="${Usuaris.password}">password</td>
-  <td th:text="${Usuaris.rol}">rol</td>
+    </thead>
+    <tbody>
+      <tr th:each="Usuaris : ${llistaUsuaris}">
+        <td th:text="${Usuaris.username}">username</td>
+        <td th:text="${Usuaris.password}">password</td>
+        <td th:text="${Usuaris.rol}">rol</td>
+        </br>
+      </tr>
+    </tbody>
+
+  </table>
+
+  </br>
+  </br>
+  </br>
   </br>
 
-</tr>
-</tbody>
-</table>
-</br>
-</br>
-</br>
-</br>
-<form th:action="@{/logout}" method="post">
-  <input type="submit" value="Sortir"/>
-</form>
+  <form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sortir"/>
+  </form>
 </body>
 </html>

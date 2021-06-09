@@ -30,24 +30,25 @@ public class ServeiUsuaris {
     public Usuari consultaPerId(Long id) {
         return repositori.findById(id).orElse(null);
     }
+
     public Usuari consultaPerNom(String username) {
-        final Usuari[] usuariR = new Usuari[1];
+        final Usuari[] usuariFind = new Usuari[1];
         repositori.findAll().forEach(new Consumer<Usuari>() {
             @Override
             public void accept(Usuari usuari) {
                 if (usuari.getUsername().equals(username))
-                    usuariR[0] = usuari;
+                    usuariFind[0] = usuari;
             }
         });
-        return usuariR[0];
+        return usuariFind[0];
     }
 
 
     @PostConstruct
     public void init() {
         if (repositori.count()==0) {
-            repositori.save(new Usuari("1", passwordEncoder("1"), "1", "ADMIN"));
-            repositori.save(new Usuari("root", passwordEncoder("toor"), "toor", "ADMIN"));
+            repositori.save(new Usuari("admin", passwordEncoder("1"), "1", "ADMIN"));
+            repositori.save(new Usuari("root", passwordEncoder("1234"), "1234", "ADMIN"));
         }
     }
 

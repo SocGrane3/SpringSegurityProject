@@ -1,7 +1,6 @@
 package cat.itb.m09.projecte_spring_boot_security.projecte_spring_boot_security.servei;
 
 import cat.itb.m09.projecte_spring_boot_security.projecte_spring_boot_security.model.Usuari;
-import cat.itb.m09.projecte_spring_boot_security.projecte_spring_boot_security.servei.ServeiUsuaris;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -10,10 +10,10 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Personatge{
+public class Manga {
 
     private String nom;
-    private String videojoc;
+    private String autor;
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id",unique=true, nullable = false)
@@ -25,9 +25,9 @@ public class Personatge{
         return id;
     }
 
-    public Personatge(String nom, String videojoc) {
+    public Manga(String nom, String videojoc) {
         this.nom = nom;
-        this.videojoc = videojoc;
+        this.autor = videojoc;
 
     }
 }

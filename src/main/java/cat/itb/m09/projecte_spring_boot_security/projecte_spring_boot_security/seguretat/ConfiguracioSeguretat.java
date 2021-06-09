@@ -12,29 +12,27 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class ConfiguracioSeguretat extends WebSecurityConfigurerAdapter {
-     @Autowired
-     private ElMeuUserDetailsService userDetailsService = new ElMeuUserDetailsService();
-
+    @Autowired
+    private ElMeuUserDetailsService userDetailsService = new ElMeuUserDetailsService();
 
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-               .userDetailsService(userDetailsService)
-
-                .passwordEncoder(passwordEncoder());
-
+           .userDetailsService(userDetailsService)
+            .passwordEncoder(passwordEncoder());
         }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/","/home", "/registration","/error").permitAll()
-                .antMatchers( "/update/**","/delete/**").hasRole("ADMIN")
-                .antMatchers("/", "/h2-console/**", "/registre","/userList")
+                .antMatchers("/", "/home", "/registration", "/error").permitAll()
+                .antMatchers( "/update/**", "/delete/**", "/userList").hasRole("ADMIN")
+                .antMatchers("/", "/h2-console/**", "/registre")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -45,20 +43,10 @@ public class ConfiguracioSeguretat extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/")
                 .permitAll()
                  .and()
-
                 .logout()//redirecció a /login?logout
-                .permitAll()
+                .permitAll();
 
-        ;
         http.csrf().disable(); //per h2-console
         http.headers().frameOptions().disable(); //per h2-console
-
-
-
-        ;
-
     }
-
-
-
 }
