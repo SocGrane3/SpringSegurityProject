@@ -31,11 +31,13 @@ public class ControladorDades {
         m.addAttribute("Manga",new Manga());
         return "home";
     }
+
     @PostMapping("/afegirManga")
     public String afegirMangaSubmit(@ModelAttribute("Manga") Manga manga){
         serveiManga.afegir(manga);
         return "redirect:/home";
     }
+
     @RequestMapping( value ="/update/{name}", method = RequestMethod.POST)
     public String updateManga(@PathVariable("name") String manga, Model m){
 

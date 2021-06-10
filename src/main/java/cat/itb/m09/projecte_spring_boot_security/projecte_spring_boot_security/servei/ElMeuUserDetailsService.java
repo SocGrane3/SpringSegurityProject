@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class ElMeuUserDetailsService implements UserDetailsService {
 
-
     @Autowired
     private ServeiUsuaris serveiUsuaris;
+
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         Usuari u= serveiUsuaris.consultaPerNom(s);
@@ -27,5 +27,4 @@ public class ElMeuUserDetailsService implements UserDetailsService {
         else throw new UsernameNotFoundException("Usuari no trobat");
         return builder.build();
     }
-
 }

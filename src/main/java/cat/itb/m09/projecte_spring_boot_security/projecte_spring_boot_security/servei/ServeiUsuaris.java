@@ -5,7 +5,6 @@ import cat.itb.m09.projecte_spring_boot_security.projecte_spring_boot_security.m
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +41,6 @@ public class ServeiUsuaris {
         });
         return usuariFind[0];
     }
-
 
     @PostConstruct
     public void init() {

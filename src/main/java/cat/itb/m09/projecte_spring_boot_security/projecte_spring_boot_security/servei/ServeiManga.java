@@ -4,7 +4,6 @@ import cat.itb.m09.projecte_spring_boot_security.projecte_spring_boot_security.R
 import cat.itb.m09.projecte_spring_boot_security.projecte_spring_boot_security.model.Manga;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,6 @@ public class ServeiManga {
         repositori.findAll().iterator().forEachRemaining(actualList::add);
         return actualList;
     }
-
 
     public Manga consultaMangaPerNom(String s) {
         for (int i = 0; i < repositori.count(); i++) {
@@ -45,15 +43,14 @@ public class ServeiManga {
             }
         }
         repositori.delete(manga);
-
     }
+
     public void actualitzarPersonatgePerNom(Manga manga, String nombre ){
         for (int i = 0; i < repositori.count(); i++) {
             if (nombre.equals(repositori.findById((long) i).get().getNom())){
 
                 repositori.findById((long) i).get().setNom(manga.getNom());
                 repositori.findById((long) i).get().setAutor(manga.getAutor());
-
             }
         }
     }

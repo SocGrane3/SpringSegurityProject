@@ -3,9 +3,7 @@ package cat.itb.m09.projecte_spring_boot_security.projecte_spring_boot_security.
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
-
 
 @Data
 @AllArgsConstructor
@@ -14,17 +12,14 @@ import javax.persistence.*;
 public class Usuari {
 
     private String username;
-
     private String password;
-
     private String matchingPassword;
-
     private String rol;
+
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id",unique=true, nullable = false)
     private Long id;
-
 
     public Usuari(String name, String password, String matchingPassword) {
         this.username = name;
@@ -43,6 +38,4 @@ public class Usuari {
     public Long getId() {
         return id;
     }
-
-
 }

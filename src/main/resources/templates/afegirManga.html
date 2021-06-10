@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>NewManga</title>
+</head>
 <body>
-  <h1 th:text="Registre">form</h1>
+  <h1 th:text="Nou manga">form</h1>
   <form action="#"  th:action="@{/afegirManga}"  th:object="${Manga}" method="POST" >
     <div>
-      <label th:text="Nom_Personatge">Nom Personatge</label>
+      <label th:text="Nom_Manga">Nom Manga</label>
       <input type="text" id="username" th:field="*{nom}"/>
       <p th:each="error: ${#fields.errors('nom')}"
          th:text="${error}">Validation error</p>

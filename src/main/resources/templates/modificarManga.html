@@ -1,21 +1,27 @@
  <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<body>
+ <head>
+     <meta charset="UTF-8">
+     <title>UpdateManga</title>
+ </head>
+ <body>
 
-    <h1 th:text="Nou Manga">form</h1>
+    <h1 th:text="Actulizar Manga">form</h1>
     <form action="#"  th:action="@{/modificarManga}"  th:object="${Manga}" method="POST" >
         <div>
-            <label th:text="Nom">Nom Manga</label>
+            <label th:text="Nom">Actulizar Manga</label>
             <input type="text" id="username" th:field="*{nom}"/>
             <p th:each="error: ${#fields.errors('nom')}"
                th:text="${error}">Error</p>
         </div>
+
         <div>
             <label th:text="autor">autor</label>
             <input type="text"  th:field="*{autor}"/>
             <p th:each="error : ${#fields.errors('autor')}"
                th:text="${error}">Error</p>
         </div>
+
         <button type="submit" th:text="Submit">submit</button>
     </form>
 

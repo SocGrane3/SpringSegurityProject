@@ -14,12 +14,11 @@ public class Manga {
 
     private String nom;
     private String autor;
+
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id",unique=true, nullable = false)
     private Long id;
-
-
 
     public Long getId() {
         return id;
@@ -28,6 +27,5 @@ public class Manga {
     public Manga(String nom, String videojoc) {
         this.nom = nom;
         this.autor = videojoc;
-
     }
 }

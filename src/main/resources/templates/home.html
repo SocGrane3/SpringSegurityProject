@@ -8,14 +8,15 @@
     <table>
         <thead>
             <tr>
-
                 <th>Nom</th>
                 <th>Manga</th>
+
                 <form action="#"  th:action="@{afegir}"  method="post">
                     <input  type="submit"  value="Afegir personatge"/>
                 </form>
             </tr></br>
         </thead>
+
         <tbody>
             <tr th:each="Manga : ${llistaManga}">
                 <br>
@@ -33,7 +34,6 @@
 
                 </br>
             </tr>
-
         </tbody>
     </table>
 

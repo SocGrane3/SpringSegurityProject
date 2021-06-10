@@ -12,8 +12,6 @@ import org.springframework.web.context.request.WebRequest;
 
 @Controller
 public class    ControladorLogin {
-
-
     @Autowired
     private ServeiUsuaris servei;
 
